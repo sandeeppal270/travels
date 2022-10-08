@@ -9,6 +9,7 @@ use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\ReportJourneyController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\GraphController;
 
 
 
@@ -141,6 +142,10 @@ Route::get('/editpage', function () {
     return view('emails.edit');
 });
 Route::get('/login',[LoginController::class,'index']);
+// Route::get('/analytics',[GraphController::class,'index']);
+Route::controller(GraphController::class)->group(function(){
+    Route::get('/analytics','index')->name('analytics.page');
+});
 
 
 

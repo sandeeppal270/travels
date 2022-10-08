@@ -89,7 +89,7 @@
                                         <th scope="col">latitude/ longitude</th>
                                         <th scope="col">City/ District/ Zip</th>
                                         <th scope="col">State/ Country</th>
-                                        <th scope="col">Crime Count/ Incident Type/ R Type</th>
+                                        <th scope="col">Crime Count/ Incident Type/ Reported Via</th>
                                         <th scope="col">Agent</th>
                                         <th scope="col">Action1/ Action2/ Action3</th>
                                         <th scope="col">Delegated/ Status</th>

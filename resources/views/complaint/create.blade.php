@@ -162,7 +162,7 @@
                   </div>
                   <div class="form-group">
                     <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
-                      <label>R Type</label></br>
+                      <label>Reported Via</label></br>
                       <input type="text" name="r_type" id="r_type" class="form-control"></br>
                       <span class="fa fa-type form-control-feedback right" aria-hidden="true"></span>
                     </div>

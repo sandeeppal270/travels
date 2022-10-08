@@ -41,8 +41,8 @@
         <label>Crime Count</label></br>
         <input type="text" name="crime_count" id="crime_count" value="{{$locations->crime_count}}" class="form-control"></br>
         <label>Incident Type</label></br>
-        <input type="text" name="incident_tpe" id="incident_tpe" value="{{$locations->incident_tpe}}" class="form-control"></br>
-        <label>R Type</label></br>
+        <input type="text" name="incident_type" id="incident_type" value="{{$locations->incident_tpe}}" class="form-control"></br>
+        <label>Reported Via</label></br>
         <input type="text" name="r_type" id="r_type" value="{{$locations->r_type}}" class="form-control"></br>
         <label>Agent</label></br>
         <input type="text" name="agent" id="agent" value="{{$locations->agent}}" class="form-control"></br>

@@ -178,7 +178,7 @@
                                       <h2 class="card-text"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Incident Type : {{ $locations->incident_type }}</h2>
                                     </li>
                                     <li>
-                                      <h2 class="card-text"><i class='fa fa-file-text'></i>&nbsp;&nbsp;&nbsp;R Type : {{ $locations->r_type }}</h2>
+                                      <h2 class="card-text"><i class='fa fa-file-text'></i>&nbsp;&nbsp;&nbsp;Reported Via : {{ $locations->r_type }}</h2>
                                     </li>
                                     <li>
                                       <h2 class="card-text"><i class="fa fa-user-secret"></i>&nbsp;&nbsp;&nbsp;Agent : {{ $locations->agent }}</h2>
