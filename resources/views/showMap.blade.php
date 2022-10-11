@@ -80,61 +80,47 @@
                     <!-- Show Graph Data -->
 <script src="https://cdnjs.com/libraries/Chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+<section class="content" style="margin-left:20px;margin-right:20pzx;margin-top:50px;">
+<label for="cars">Select Chart Style</label>
+<select name="chart" onchange="myFunction()" class="form-control" id="chart" style="width:120px;">
+  <option value="pie">Pie</option>
+  <option value="column">Column</option>
+  <option value="pyramid">Pyramid</option>
+  <option value="bar">Bar</option>
+</select>
+<div class="product-index" align="right" style="margin-top:1px;">
+<div id="chartContainer" style="height:450px; width:100%"></div>
 
-<div class="map_canvas">
-  
-            <canvas id="myChart" width="auto" height="auto"></canvas>
 </div>
+
+</section>
 <script>
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-          labels: <?php echo json_encode($labels) ?>,
-          datasets: [{
-              label: '',
-              data: <?php echo json_encode($prices); ?>,
-              backgroundColor: [
-                  'rgba(31, 58, 147, 1)',
-                  'rgba(37, 116, 169, 1)',
-                  'rgba(92, 151, 191, 1)',
-                  'rgb(200, 247, 197)',
-                  'rgb(77, 175, 124)',
-                  'rgb(30, 130, 76)'
-              ],
-              borderColor: [
-                  'rgba(31, 58, 147, 1)',
-                  'rgba(37, 116, 169, 1)',
-                  'rgba(92, 151, 191, 1)',
-                  'rgb(200, 247, 197)',
-                  'rgb(77, 175, 124)',
-                  'rgb(30, 130, 76)'
-              ],
-              borderWidth: 1
-          }]
+  function myFunction(){
+    var chartType = document.getElementById("chart").value;
+     var chart = new CanvasJS.Chart("chartContainer",{
+      animatonEnabled:true,
+      title:{
+        text:"city with crime count"
       },
-      options: {
-          scales: {
-              y: {
-                  max: 200,
-                  min: 0,
-                  ticks: {
-                      stepSize: 25
-                  }
-              }
-          },
-          plugins: {
-              title: {
-                  display: true,
-                  text: 'Crime Count'
-              },
-              legend: {
-                  display: true,
-              }
-          }
-      }
-  });
+      subtitle:[{
+        text:"crime count"
+
+      }],
+      data : [{
+        type:chartType, //"column",
+        yValueFormatString: "##0.00\"\"",
+		    indexLabel: "{label}({y})",
+		dataPoints: <?php echo json_encode($data,JSON_NUMERIC_CHECK); ?>
+      }]
+     });
+     chart.render();
+  }
 </script>
+
+
+
+
+
 
 
 
@@ -150,7 +136,6 @@
         <!--footer content-->
       </div>
     </div>
-
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -197,10 +182,12 @@
      <script src="../build/js/custom.min.js"></script>
      <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0NuQOXznmNbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
 
 
 
 	
   </body>
 </html>
+
 
