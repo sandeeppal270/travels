@@ -150,9 +150,10 @@ Route::controller(GraphController::class)->group(function(){
 });
 Route::controller(UsermapController::class)->group(function(){
     Route::get('/useranalytics','index')->name('usergraph.page');
+    
 });
 Route::controller(AddressgraphController::class)->group(function(){
-    Route::get('/addressanalytics','index');
+    Route::get('/addressanalytics','index')->name('addressgraph.page');
 });
 
 

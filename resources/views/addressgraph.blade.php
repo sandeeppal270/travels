@@ -57,7 +57,8 @@
                 <div class="col-md-12 col-sm-8 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
-                      <h2>Name with Age Analytics</h2>
+                      <h2>Crime Analytics</h2>
+                      <a href="{{ route('analytics.page') }}" class="btn btn-success">Back</a>
                       <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -90,7 +91,7 @@
   <option value="bar">Bar</option>
 </select>
 <div class="product-index" align="right" style="margin-top:1px;">
-<div id="chartContainer" style="height:450px; width:100%"></div>
+<div id="chartContainer" style="height:510px; width:100%"></div>
 
 </div>
 
@@ -101,18 +102,18 @@
      var chart = new CanvasJS.Chart("chartContainer",{
       animatonEnabled:true,
       title:{
-        text:"Address with Incident-type"
+        text:"Address (Time & Date) (Crime-count)"
       },
       subtitle:[{
-        text:"age"
+        text:"crime count"
 
       }],
       data : [{
         type:chartType, //"column",
         // yValueFormatString: "##0.00\"\"",
         yValueFormatString: "#######\"\"",
-        // zValueFormatString: "######\"\"",
-		    indexLabel: "{label}({y})",
+        zValueFormatString: "######\"\"",
+		    indexLabel: "{label}({z})({y})",
 		dataPoints: <?php echo json_encode($data,JSON_NUMERIC_CHECK); ?>
       }]
      });

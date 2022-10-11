@@ -58,7 +58,8 @@
                   <div class="x_panel">
                     <div class="x_title">
                       <h2>City Analytics</h2>
-                      &nbsp;<a href="{{ route('usergraph.page') }}" class="btn btn-success">Name with Age</a>
+                      &nbsp;<a href="{{ route('usergraph.page') }}" class="btn btn-success">Name with Age Analytics</a>
+                      &nbsp;<a href="{{ route('addressgraph.page') }}" class="btn btn-success">Crime Analytics</a>
                       <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -91,7 +92,7 @@
   <option value="bar">Bar</option>
 </select>
 <div class="product-index" align="right" style="margin-top:1px;">
-<div id="chartContainer" style="height:450px; width:100%"></div>
+<div id="chartContainer" style="height:520px; width:100%"></div>
 
 </div>
 
