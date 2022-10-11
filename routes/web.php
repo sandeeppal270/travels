@@ -10,6 +10,8 @@ use App\Http\Controllers\ReportJourneyController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GraphController;
+use App\Http\Controllers\UsermapController;
+use App\Http\Controllers\AddressgraphController;
 
 
 
@@ -146,7 +148,12 @@ Route::get('/login',[LoginController::class,'index']);
 Route::controller(GraphController::class)->group(function(){
     Route::get('/analytics','index')->name('analytics.page');
 });
-
+Route::controller(UsermapController::class)->group(function(){
+    Route::get('/useranalytics','index')->name('usergraph.page');
+});
+Route::controller(AddressgraphController::class)->group(function(){
+    Route::get('/addressanalytics','index');
+});
 
 
 

@@ -35,7 +35,11 @@ class GraphController extends Controller
             
         }
         return view('showMap',['data' => $data]);
-   
+
+        
+ 
+       
+      
 }
 
 }

@@ -57,8 +57,7 @@
                 <div class="col-md-12 col-sm-8 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
-                      <h2>City Analytics</h2>
-                      &nbsp;<a href="{{ route('usergraph.page') }}" class="btn btn-success">Name with Age</a>
+                      <h2>Name with Age Analytics</h2>
                       <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -102,18 +101,18 @@
      var chart = new CanvasJS.Chart("chartContainer",{
       animatonEnabled:true,
       title:{
-        text:"city (zip code) with crime count"
+        text:"Address with Incident-type"
       },
       subtitle:[{
-        text:"crime count"
+        text:"age"
 
       }],
       data : [{
         type:chartType, //"column",
         // yValueFormatString: "##0.00\"\"",
-        yValueFormatString: "##0.00\"\"",
-        zValueFormatString: "######\"\"",
-		    indexLabel: "{label}({z})({y})",
+        yValueFormatString: "#######\"\"",
+        // zValueFormatString: "######\"\"",
+		    indexLabel: "{label}({y})",
 		dataPoints: <?php echo json_encode($data,JSON_NUMERIC_CHECK); ?>
       }]
      });
