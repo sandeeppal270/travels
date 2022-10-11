@@ -80,6 +80,7 @@
                     <!-- Show Graph Data -->
 <script src="https://cdnjs.com/libraries/Chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+<div class="col-md-12 bg-info">
 <section class="content" style="margin-left:20px;margin-right:20pzx;margin-top:50px;">
 <label for="cars">Select Chart Style</label>
 <select name="chart" onchange="myFunction()" class="form-control" id="chart" style="width:120px;">
@@ -118,15 +119,49 @@
      chart.render();
   }
 </script>
+</div>
+<div class="col-md-12 bg-danger">
+  <section class="content" style="margin-left:20px;margin-right:20pzx;margin-top:50px;">
+<label for="cars">Select Chart Style</label>
+<select name="chart" onchange="myFunction()" class="form-control" id="chart" style="width:120px;">
+  <option value="pie">Pie</option>
+  <option value="column">Column</option>
+  <option value="pyramid">Pyramid</option>
+  <option value="bar">Bar</option>
+</select>
+<div class="product-index" align="right" style="margin-top:1px;">
+<div id="chartContainer" style="height:450px; width:100%"></div>
+
+</div>
+
+</section>
+<script>
+  function myFunction(){
+    var chartType = document.getElementById("chart").value;
+     var chart = new CanvasJS.Chart("chartContainer",{
+      animatonEnabled:true,
+      title:{
+        text:"city (zip code) with crime count"
+      },
+      subtitle:[{
+        text:"crime count"
+
+      }],
+      data : [{
+        type:chartType, //"column",
+        // yValueFormatString: "##0.00\"\"",
+        yValueFormatString: "##0.00\"\"",
+        zValueFormatString: "######\"\"",
+		    indexLabel: "{label}({z})({y})",
+		dataPoints: <?php echo json_encode($data,JSON_NUMERIC_CHECK); ?>
+      }]
+     });
+     chart.render();
+  }
+</script>
+  </div>
 
 
-
-
-
-
-
-
-  
                     </div>
                   </div>
                 </div>
