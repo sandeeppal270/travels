@@ -36,7 +36,7 @@
             <div class="">
               <div class="page-title">
                 <div class="title_left">
-                  <h3>Echarts <small>Report Analysis</small></h3>
+                  <h3>Echarts <small>Report Analytics</small></h3>
                 </div>
   
                 <div class="title_right">
@@ -57,7 +57,7 @@
                 <div class="col-md-12 col-sm-8 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
-                      <h2>Bar Graph</h2>
+                      <h2>City Analytics</h2>
                       <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -100,7 +100,7 @@
      var chart = new CanvasJS.Chart("chartContainer",{
       animatonEnabled:true,
       title:{
-        text:"city with crime count"
+        text:"city (zip code) with crime count"
       },
       subtitle:[{
         text:"crime count"
@@ -108,8 +108,10 @@
       }],
       data : [{
         type:chartType, //"column",
+        // yValueFormatString: "##0.00\"\"",
         yValueFormatString: "##0.00\"\"",
-		    indexLabel: "{label}({y})",
+        zValueFormatString: "######\"\"",
+		    indexLabel: "{label}({z})({y})",
 		dataPoints: <?php echo json_encode($data,JSON_NUMERIC_CHECK); ?>
       }]
      });
@@ -182,12 +184,10 @@
      <script src="../build/js/custom.min.js"></script>
      <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0NuQOXznmNbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
-
-
-
-	
+     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   </body>
 </html>
+
+
 
 
