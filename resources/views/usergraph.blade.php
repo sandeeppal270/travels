@@ -13,7 +13,8 @@
               <a data-toggle="tooltip" data-placement="top" title="Settings">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+              <a onclick="closeFullscreen();" title="Close FullScreen" data-toggle="tooltip" data-placement="top"><span aria-hidden="true"><b>X</b></span></a>
+              <a onclick="openFullscreen();" data-toggle="tooltip" data-placement="top" title="FullScreen">
                 <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
               </a>
               <a data-toggle="tooltip" data-placement="top" title="Lock">
@@ -58,7 +59,7 @@
                   <div class="x_panel">
                     <div class="x_title">
                       <h2>Name with Age Analytics</h2>
-                      &nbsp;<a href="{{ route('analytics.page') }}" class="btn btn-success">Back</a>
+                      &nbsp;<a href="{{ route('analytics.page') }}" class="btn btn-success"><i class="fa fa-backward"></i>&nbsp;Back</a>
                       <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
