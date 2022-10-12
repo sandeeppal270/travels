@@ -54,15 +54,11 @@
                   <li><a href="{{route('locations.page')}}"><i class="fa fa-location-arrow"></i><strong>Location</strong></a>
                   
                   </li>
-                  <li><a href="{{route('report.page')}}"><i class="fa fa-warning"></i><strong>Journey Alerts</strong> </a>
-                    
-                  </li>
-                             
+                  <li><a href="{{route('report.page')}}"><i class="fa fa-warning"></i><strong>Journey Alerts</strong> </a> 
+                  </li>        
                   <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> CCTV Install<span class="label label-success pull-right">Coming Soon</span></a></li>
                 </ul>
               </div>
-
-            </div>
-            
+            </div>    
 </body>
 </html>
