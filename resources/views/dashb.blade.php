@@ -17,7 +17,6 @@
               <a onclick="openFullscreen();" data-toggle="tooltip" data-placement="top" title="FullScreen">
                 <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
               </a>
-              {{-- <a onclick="openFullscreen();">Open Fullscreen</a> --}}
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
               </a>
@@ -26,7 +25,6 @@
               </a>
             </div>
             <!-- /menu footer buttons -->
-           
           </div>
         </div>
 
@@ -39,7 +37,7 @@
             <div class="">
               <div class="page-title">
                 <div class="title_left">
-                  <h3>Echarts <small>Report Analysis</small></h3>
+                  <h3>Echarts <small>Report Analytics</small></h3>
                 </div>
   
                 <div class="title_right">
@@ -57,8 +55,33 @@
               <div class="clearfix"></div>
   
               <div class="row">
-                <div class="col-md-8 col-sm-8 col-xs-12">
-                  <script src="https://cdnjs.com/libraries/Chart.js"></script>
+                <div class="col-md-12 col-sm-8 col-xs-12">
+                  <div class="x_panel">
+                    <div class="x_title">
+                      {{-- <h2>City Analytics</h2>
+                      &nbsp;<a href="{{ route('usergraph.page') }}" class="btn btn-success">City</a>
+                      &nbsp;<a href="{{ route('addressgraph.page') }}" class="btn btn-success">Crime Analytics</a> --}}
+                      <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Settings 1</a>
+                            </li>
+                            <li><a href="#">Settings 2</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                      </ul>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                    {{-- <div id="mainb" style="height:350px;"></div> --}}
+                    <!-- Show Graph Data -->
+<script src="https://cdnjs.com/libraries/Chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
 <div class="col-md-12 bg-info">
 <section class="content" style="margin-left:20px;margin-right:20pzx;margin-top:50px;">
@@ -69,12 +92,10 @@
   <option value="pyramid">Pyramid</option>
   <option value="bar">Bar</option>
 </select>
-
 <div class="product-index" align="right" style="margin-top:1px;">
 <div id="chartContainer" style="height:520px; width:100%"></div>
 
 </div>
-
 
 </section>
 <script>
@@ -103,85 +124,14 @@
 </script>
 </div>
 
+
+
+
+
+                    </div>
+                  </div>
                 </div>
-  
-  
-  
-               
-  
-  
-                
-                <!-- Show Graph Data -->
-<script src="https://cdnjs.com/libraries/Chart.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
-
-<div class="map_canvas">
-  
-            <canvas id="myChart" width="auto" height="100"></canvas>
-</div>
-
-// <script>
-// var ctx = document.getElementById('myChart').getContext('2d');
-// var myChart = new Chart(ctx, {
-//     type: 'bar',
-//     data: {
-//         labels: <?php echo json_encode($labels) ?>,
-//         datasets: [{
-//             label: '',
-//             data: <?php echo json_encode($prices); ?>,
-//             backgroundColor: [
-//                 'rgba(31, 58, 147, 1)',
-//                 'rgba(37, 116, 169, 1)',
-//                 'rgba(92, 151, 191, 1)',
-//                 'rgb(200, 247, 197)',
-//                 'rgb(77, 175, 124)',
-//                 'rgb(30, 130, 76)'
-//             ],
-//             borderColor: [
-//                 'rgba(31, 58, 147, 1)',
-//                 'rgba(37, 116, 169, 1)',
-//                 'rgba(92, 151, 191, 1)',
-//                 'rgb(200, 247, 197)',
-//                 'rgb(77, 175, 124)',
-//                 'rgb(30, 130, 76)'
-//             ],
-//             borderWidth: 1
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             y: {
-//                 max: 200,
-//                 min: 0,
-//                 ticks: {
-//                     stepSize: 50
-//                 }
-//             }
-//         },
-//         plugins: {
-//             title: {
-//                 display: false,
-//                 text: 'Custom Chart Title'
-//             },
-//             legend: {
-//                 display: false,
-//             }
-//         }
-//     }
-// });
-// </script> --}}
-  
-  
-                
-  
-  
-               
-                
-  
-                
-  
-               
-               
+         
         <!-- /page content -->
 
         <!-- footer content -->
@@ -189,7 +139,6 @@
         <!--footer content-->
       </div>
     </div>
-
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -233,22 +182,13 @@
     <script src="../vendors/echarts/map/js/world.js"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="../build/js/custom.min.js"></script>
-
-
-    <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/6288c1c07b967b1179908438/1g3j39mmj';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
-  </script>
-  <!--End of Tawk.to Script-->
-	
+     <script src="../build/js/custom.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0NuQOXznmNbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
   </body>
 </html>
+
+
+
+

@@ -29,7 +29,7 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a href="{{route('dashboard.page')}}"><i class="fa fa-dashboard"></i><strong>Dashboard </strong></a>
+                  <li><a href="{{route('dashb.page')}}"><i class="fa fa-dashboard"></i><strong>Dashboard </strong></a>
                   <li><a href="{{route('analytics.page')}}"><i class="fa fa-bar-chart"></i><strong>Analytics </strong></a>
                      
                   {{-- </li>
@@ -39,7 +39,7 @@
                   <li><a href="{{route('user.page')}}"><i class="fa fa-desktop"></i><strong>App User Details</strong></a>
                    
                   </li>
-                  <li><a href="{{route('email.page')}}"><i class="fa fa-inbox"></i><strong>Emails</strong> </a>
+                  <li><a href="{{route('email.page')}}"><i class="fa fa-inbox"></i><strong>Emergency Emails</strong> </a>
                     
                   </li>
                   <li><a><i class="fa fa-line-chart"></i><strong>Geo Fences</strong></a>

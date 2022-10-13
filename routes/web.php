@@ -12,6 +12,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GraphController;
 use App\Http\Controllers\UsermapController;
 use App\Http\Controllers\AddressgraphController;
+use App\Http\Controllers\DashbController;
 
 
 
@@ -110,10 +111,13 @@ Route::controller(ReportJourneyController::class)->group(function(){
 
 
 Route::get('/dashboard',[HomeController::class,'dashboard']);
+Route::get('/dash',[HomeController::class,'dash']);
+
 
 Route::controller(HomeController::class)->group(function(){
-    Route::get('/dashboard','dashboard')->name('dashboard.page');
+    Route::get('/dash','dash')->name('dashboard.page');
 });
+
 Route::get('/home',[HomeController::class,'home']);
 Route::get('/template',[HomeController::class,'template']);
 Route::get('/index',[HomeController::class,'index']);
@@ -155,7 +159,9 @@ Route::controller(UsermapController::class)->group(function(){
 Route::controller(AddressgraphController::class)->group(function(){
     Route::get('/addressanalytics','index')->name('addressgraph.page');
 });
-
+Route::controller(DashbController::class)->group(function(){
+    Route::get('/dashb','index')->name('dashb.page');
+});
 
 
 

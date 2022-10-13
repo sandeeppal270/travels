@@ -20,7 +20,9 @@ class GraphController extends Controller
         // $price = ['10', '5', '100', '90', '50', '30','10', '5', '100', '90', '50', '30'];
         // return view('showMap',['labels' => $label, 'prices' => $price]);
         $post=DB::table('locations')->get('*')->toArray();
-        $post=DB::table('locations')->select(DB::raw('sum(crime_count) as crime_count,city,zip'))->groupBy('city','zip')->get();
+        // $post=DB::table('locations')->limit(10)->get()->toArray();
+        // $post=DB::table('locations')->limit(10)->offset(10);
+        $post=DB::table('locations')->select(DB::raw('sum(crime_count) as crime_count,city,zip'))->groupBy('city','zip')->limit(10)->offset(10)->get();
 
         foreach($post as $row)
 
