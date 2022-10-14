@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class RoughController extends Controller
 {
     public function index(){
-        $locations=DB::table('locations')->get('city');
+        $locations=DB::table('locations')->get('*');
             $store['locations'] = $locations;
            
             return view('rough',$store);

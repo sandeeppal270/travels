@@ -169,7 +169,7 @@ Route::controller(IncidentController::class)->group(function(){
     Route::get('/incident','index')->name('incident.page');
 });
 Route::controller(RoughController::class)->group(function(){
-    Route::get('/rough','index');
+    Route::get('/rough','index')->name('rough.page');
 });
 
 

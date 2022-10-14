@@ -10,9 +10,9 @@
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
+              {{-- <a data-toggle="tooltip" data-placement="top" title="Settings">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              </a>
+              </a> --}}
               <a onclick="closeFullscreen();" title="Close FullScreen" data-toggle="tooltip" data-placement="top"><span aria-hidden="true"><b>X</b></span></a>
               <a onclick="openFullscreen();" data-toggle="tooltip" data-placement="top" title="FullScreen">
                 <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
@@ -62,26 +62,19 @@
                       &nbsp;<a href="{{ route('usergraph.page') }}" class="btn btn-success">City with Age Analytics</a>
                       &nbsp;<a href="{{ route('addressgraph.page') }}" class="btn btn-success">Crime Analytics</a>
                       &nbsp;<a href="{{ route('incident.page') }}" class="btn btn-success">Incident type Analytics</a>
-                      <section class="content" style="margin-left:900px;margin-right:20px;margin-top:-50px;">
+                      &nbsp;<a href="{{ route('rough.page') }}" class="btn btn-success">More&nbsp;<i class="fa fa-arrow-right"></i></a>
+                      {{-- <section class="content" style="margin-left:900px;margin-right:20px;margin-top:-50px;">
                         <label for="cars">Select City</label>
                         <select name="#" onchange="#" class="form-control" id="#" style="width:120px;">
                           <option value="city">city</option>
-                          {{-- @if($data)
-                          @foreach($data as $item)
-                          <tr>
-                              <option>{{ $loop->iteration }}</option>
-                              <option>{{ $item->city }}</option>
-                          </tr>
-                      @endforeach
-                      @endif --}}
                         </select>
                         <div class="product-index" align="right" style="margin-top:1px;">
                           <div id="#" style="height:0px; width:0%"></div>
                           
                           </div>
                           
-                        </section>
-                        <section class="content" style="margin-left:1050px;margin-right:2px;margin-top:-60px;">
+                        </section> --}}
+                        {{-- <section class="content" style="margin-left:1050px;margin-right:2px;margin-top:-60px;">
                           <label for="cars">Crime Type</label>
                           <select name="#" onchange="myFunction()" class="form-control" id="#" style="width:120px;">
                             <option value="pie">crime</option>
@@ -92,7 +85,7 @@
                             
                             </div>
                             
-                          </section>
+                          </section> --}}
                       <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
