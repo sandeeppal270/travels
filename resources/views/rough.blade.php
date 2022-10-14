@@ -120,23 +120,23 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
 <div class="col-md-12 bg-info">
   <div class="card">
-        <label for="per1">City</label><br>
+        <label for="per1">District</label><br>
 <select name="per1" id="per1">
-    <option selected="selected">Choose one</option>
+    <option selected="selected">--Select--</option>
     @if($locations)
     @foreach($locations as $item)
-    <option value="#"><a href="#">{{ $item->city }}</a></option>
+    <option value="#"><a href="#">{{ $item->district }}</a></option>
     @endforeach
     @endif
 </select>
 </div>
-<div class="card" style="margin-left:300px; margin-top:-40px ">
-    <label for="per1">Crime Type</label><br>
+<div class="card" style="margin-left:200px; margin-top:-40px">
+    <label for="per1">Zip Code</label><br>
     <select name="per1" id="per1">
-        <option selected="selected">Choose one</option>
+        <option selected="selected">--Select--</option>
         @if($locations)
         @foreach($locations as $item)
-        <a href="#"><option value="#">{{ $item->incident_type }}</option></a>
+        <a href="#"><option value="#">{{ $item->zip }}</option></a>
         @endforeach
         @endif
     </select>

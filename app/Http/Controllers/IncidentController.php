@@ -24,7 +24,7 @@ class IncidentController extends Controller
         //     ->select('locations.*', 'app_users.*')->limit(10)->offset(5)->orderByDesc("age")
         //     ->get();
         $post=DB::table('locations')->get('*')->toArray();
-        $post=DB::table('locations')->select(DB::raw('sum(crime_count) as crime_count,incident_type,r_type'))->groupBy('incident_type','r_type')->take(10)->skip(0)->get();
+        $post=DB::table('locations')->select(DB::raw('sum(crime_count) as crime_count,incident_type,r_type'))->groupBy('incident_type','r_type')->orderByDesc("crime_count")->take(10)->skip(0)->get();
         foreach($post as $row)
 
         {   
