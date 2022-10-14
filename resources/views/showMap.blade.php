@@ -58,9 +58,41 @@
                 <div class="col-md-12 col-sm-8 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
-                      <h2>City Analytics</h2>
-                      &nbsp;<a href="{{ route('usergraph.page') }}" class="btn btn-success">Name with Age Analytics</a>
+                      <div class="btn btn-info">City With Crime Analytics</div>
+                      &nbsp;<a href="{{ route('usergraph.page') }}" class="btn btn-success">City with Age Analytics</a>
                       &nbsp;<a href="{{ route('addressgraph.page') }}" class="btn btn-success">Crime Analytics</a>
+                      &nbsp;<a href="{{ route('incident.page') }}" class="btn btn-success">Incident type Analytics</a>
+                      <section class="content" style="margin-left:900px;margin-right:20px;margin-top:-50px;">
+                        <label for="cars">Select City</label>
+                        <select name="#" onchange="#" class="form-control" id="#" style="width:120px;">
+                          <option value="city">city</option>
+                          {{-- @if($data)
+                          @foreach($data as $item)
+                          <tr>
+                              <option>{{ $loop->iteration }}</option>
+                              <option>{{ $item->city }}</option>
+                          </tr>
+                      @endforeach
+                      @endif --}}
+                        </select>
+                        <div class="product-index" align="right" style="margin-top:1px;">
+                          <div id="#" style="height:0px; width:0%"></div>
+                          
+                          </div>
+                          
+                        </section>
+                        <section class="content" style="margin-left:1050px;margin-right:2px;margin-top:-60px;">
+                          <label for="cars">Crime Type</label>
+                          <select name="#" onchange="myFunction()" class="form-control" id="#" style="width:120px;">
+                            <option value="pie">crime</option>
+                         
+                          </select>
+                          <div class="product-index" align="right" style="margin-top:1px;">
+                            <div id="#" style="height:0px; width:0%"></div>
+                            
+                            </div>
+                            
+                          </section>
                       <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -104,7 +136,7 @@
      var chart = new CanvasJS.Chart("chartContainer",{
       animatonEnabled:true,
       title:{
-        text:"city (zip code) with crime count"
+        text:"city with crime count"
       },
       subtitle:[{
         text:"crime count"
@@ -114,8 +146,9 @@
         type:chartType, //"column",
         // yValueFormatString: "##0.00\"\"",
         yValueFormatString: "##0.00\"\"",
-        zValueFormatString: "######\"\"",
-		    indexLabel: "{label}({z})({y})",
+        // zValueFormatString: "######\"\"",
+		    // indexLabel: "{label}({z})({y})",
+        indexLabel: "{label}({y})",
 		dataPoints: <?php echo json_encode($data,JSON_NUMERIC_CHECK); ?>
       }]
      });

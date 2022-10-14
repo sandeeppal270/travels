@@ -12,7 +12,7 @@ class DashbController extends Controller
         $post=DB::table('locations')->get('*')->toArray();
         // $post=DB::table('locations')->limit(10)->get()->toArray();
         // $post=DB::table('locations')->limit(10)->offset(10);
-        $post=DB::table('locations')->select(DB::raw('sum(crime_count) as crime_count,city,zip'))->groupBy('city','zip')->orderByDesc("crime_count")->limit(10)->offset(0)->get();
+        $post=DB::table('locations')->select(DB::raw('sum(crime_count) as crime_count,city,zip'))->groupBy('city','zip')->orderByDesc("crime_count")->offset(0)->get();
 
         foreach($post as $row)
 

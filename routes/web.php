@@ -13,6 +13,8 @@ use App\Http\Controllers\GraphController;
 use App\Http\Controllers\UsermapController;
 use App\Http\Controllers\AddressgraphController;
 use App\Http\Controllers\DashbController;
+use App\Http\Controllers\IncidentController;
+use App\Http\Controllers\RoughController;
 
 
 
@@ -152,6 +154,7 @@ Route::get('/login',[LoginController::class,'index']);
 Route::controller(GraphController::class)->group(function(){
     Route::get('/analytics','index')->name('analytics.page');
 });
+
 Route::controller(UsermapController::class)->group(function(){
     Route::get('/useranalytics','index')->name('usergraph.page');
     
@@ -162,6 +165,13 @@ Route::controller(AddressgraphController::class)->group(function(){
 Route::controller(DashbController::class)->group(function(){
     Route::get('/dashb','index')->name('dashb.page');
 });
+Route::controller(IncidentController::class)->group(function(){
+    Route::get('/incident','index')->name('incident.page');
+});
+Route::controller(RoughController::class)->group(function(){
+    Route::get('/rough','index');
+});
+
 
 
 

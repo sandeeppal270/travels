@@ -13,14 +13,14 @@ class AddressgraphController extends Controller
         
         $post=DB::table('locations')->get('*')->toArray();
        
-        $post=DB::table('locations')->select(DB::raw('sum(crime_count) as crime_count,address,created_at'))->groupBy('address','created_at')->get();
+        $post=DB::table('locations')->select(DB::raw('sum(crime_count) as crime_count,city,created_at'))->groupBy('city','created_at')->orderByDesc("crime_count")->limit(10)->offset(0)->get();
 
         foreach($post as $row)
 
         {   
             $data[] = array
             (
-            'label'=>$row->address,
+            'label'=>$row->city,
             'y'=>$row->crime_count,
             'z'=>$row->created_at,
           

@@ -58,7 +58,7 @@
                 <div class="col-md-12 col-sm-8 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
-                      <h2>City with Age Analytics</h2>
+                      <h2>Incident type Analytics</h2>
                       &nbsp;<a href="{{ route('analytics.page') }}" class="btn btn-success"><i class="fa fa-backward"></i>&nbsp;Back</a>
                       <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -103,10 +103,10 @@
      var chart = new CanvasJS.Chart("chartContainer",{
       animatonEnabled:true,
       title:{
-        text:"City (Zip) (age)"
+        text:"Incident type (Reported via) (Crime count)"
       },
       subtitle:[{
-        text:"age"
+        text:"crime_count"
 
       }],
       data : [{
