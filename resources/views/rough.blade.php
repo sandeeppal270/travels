@@ -119,28 +119,107 @@
 <script src="https://cdnjs.com/libraries/Chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
 <div class="col-md-12 bg-info">
-  <div class="card">
+  <div class="card" style="margin-left:0px; margin-top:0px">
         <label for="per1">District</label><br>
-<select name="per1" id="per1">
-    <option selected="selected">--Select--</option>
-    @if($locations)
+        <select id="district" class="form-control"  style="width:120px;">
+    <option value="">--Select--</option>
+    {{-- @if($locations) --}}
     @foreach($locations as $item)
-    <option value="#"><a href="#">{{ $item->district }}</a></option>
+    <option value="{{ $item->id }}">{{ $item->district }}</option>
     @endforeach
-    @endif
+    {{-- @endif --}}
 </select>
 </div>
-<div class="card" style="margin-left:200px; margin-top:-40px">
+<div class="card" style="margin-left:0px; margin-top:0px">
+  <label for="per1">City</label><br>
+  <select id="city" onchange="#" class="form-control"  style="width:120px;">
+    <option selected="selected">--Select--</option>
+    {{-- @if($locations) --}}
+    @foreach($locations as $item)
+    <option value="#"><a href="#">{{ $item->city }}</a></option>
+    @endforeach
+    {{-- @endif --}}
+</select>
+</div>
+<div class="card" style="margin-left:0px; margin-top:0px">
     <label for="per1">Zip Code</label><br>
-    <select name="per1" id="per1">
+    <select id="zip" onchange="#" class="form-control"  style="width:120px;">
         <option selected="selected">--Select--</option>
-        @if($locations)
+        {{-- @if($locations) --}}
         @foreach($locations as $item)
         <a href="#"><option value="#">{{ $item->zip }}</option></a>
         @endforeach
-        @endif
+        {{-- @endif --}}
     </select>
-</div>  
+</div>
+<div class="card" style="margin-left:0px; margin-top:0px">
+  <label for="per1">Crime Count</label><br>
+  <select id="crime_count" onchange="#" class="form-control"  style="width:120px;">
+      <option selected="selected">--Select--</option>
+      {{-- @if($locations) --}}
+      @foreach($locations as $item)
+      <a href="#"><option value="#">{{ $item->crime_count }}</option></a>
+      @endforeach
+    
+     {{-- @endif --}}
+  </select>
+</div> 
+<div class="card" style="margin-left:0px; margin-top:0px">
+  <label for="per1">Crime Type</label><br>
+  <select id="incident_type" onchange="#" class="form-control"  style="width:120px;">
+      <option selected="selected">--Select--</option>
+      {{-- @if($locations) --}}
+      @foreach($locations as $item)
+      <a href="#"><option value="#">{{ $item->incident_type }}</option></a>
+      @endforeach
+    
+      {{-- @endif --}}
+  </select>
+</div> 
+<div class="card" style="margin-left:0px; margin-top:0px">
+  <label for="per1">Reported via</label><br>
+  <select id="r_type" onchange="#" class="form-control"  style="width:120px;">
+      <option selected="selected">--Select--</option>
+      {{-- @if($locations) --}}
+      @foreach($locations as $item)
+      <a href="#"><option value="#">{{ $item->r_type }}</option></a>
+      @endforeach
+    
+   {{-- @endif --}}
+  </select>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script>
+  jQuery(document).ready(function(){
+    jQuery('#district').change(function(){
+        let did=jQuery(this).val();
+        // jQuery('#zip').html('<option value="">Select Zip</option>')
+        alert(did)
+
+      jQuery.ajax({
+        url:'/getCity',
+        type:'post',
+        data:'did='+did+'&_token={{ csrf_token() }}',
+        success:function(result){
+          jQuery('#city').html(result)
+        }
+      });
+    });
+    jQuery('#city').change(function(){
+        let cid=jQuery(this).val();
+        // alert(cid)
+      jQuery.ajax({
+        url:'/getZip',
+        type:'post',
+        data:'cid='+cid+'&_token={{ csrf_token() }}',
+        success:function(result){
+          jQuery('#zip').html(result)
+        }
+
+      });
+    });
+  });
+</script>    
 {{-- <section class="content" style="margin-left:20px;margin-right:20pzx;margin-top:50px;">
 <label for="cars">Select Chart Style</label>
 <select name="chart" onchange="myFunction()" class="form-control" id="chart" style="width:120px;">

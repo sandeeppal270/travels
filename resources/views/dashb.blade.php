@@ -87,9 +87,9 @@
 <section class="content" style="margin-left:20px;margin-right:20pzx;margin-top:50px;">
 <label for="cars">Select Chart Style</label>
 <select name="chart" onchange="myFunction()" class="form-control" id="chart" style="width:120px;">
-  <option value="pie">Pie</option>
+  {{-- <option value="pie">Pie</option> --}}
   <option value="column">Column</option>
-  <option value="pyramid">Pyramid</option>
+  {{-- <option value="pyramid">Pyramid</option> --}}
   <option value="bar">Bar</option>
 </select>
 <div class="product-index" align="right" style="margin-top:1px;">
@@ -104,7 +104,7 @@
      var chart = new CanvasJS.Chart("chartContainer",{
       animatonEnabled:true,
       title:{
-        text:"city (zip code) with crime count"
+        text:"Top 10 Crime Cities"
       },
       subtitle:[{
         text:"crime count"
@@ -115,7 +115,7 @@
         // yValueFormatString: "##0.00\"\"",
         yValueFormatString: "##0.00\"\"",
         zValueFormatString: "######\"\"",
-		    indexLabel: "{label}({z})({y})",
+		    indexLabel: "{label}({y})",
 		dataPoints: <?php echo json_encode($data,JSON_NUMERIC_CHECK); ?>
       }]
      });
