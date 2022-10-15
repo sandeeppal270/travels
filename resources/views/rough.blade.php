@@ -119,123 +119,32 @@
 <script src="https://cdnjs.com/libraries/Chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
 <div class="col-md-12 bg-info">
-  <div class="card" style="margin-left:0px; margin-top:0px">
-        <label for="per1">District</label><br>
-        <select id="district" class="form-control"  style="width:120px;">
-    <option value="">--Select--</option>
-    {{-- @if($locations) --}}
+  <select id="district">
+    <option value="">Select District</option>
+   @if($locations)
     @foreach($locations as $item)
-    <option value="{{ $item->id }}">{{ $item->district }}</option>
+    <option value="{{$item->id }}">{{ $item->district }}</option>
     @endforeach
-    {{-- @endif --}}
-</select>
-</div>
-<div class="card" style="margin-left:0px; margin-top:0px">
-  <label for="per1">City</label><br>
-  <select id="city" onchange="#" class="form-control"  style="width:120px;">
-    <option selected="selected">--Select--</option>
-    {{-- @if($locations) --}}
-    @foreach($locations as $item)
-    <option value="#"><a href="#">{{ $item->city }}</a></option>
-    @endforeach
-    {{-- @endif --}}
-</select>
-</div>
-<div class="card" style="margin-left:0px; margin-top:0px">
-    <label for="per1">Zip Code</label><br>
-    <select id="zip" onchange="#" class="form-control"  style="width:120px;">
-        <option selected="selected">--Select--</option>
-        {{-- @if($locations) --}}
-        @foreach($locations as $item)
-        <a href="#"><option value="#">{{ $item->zip }}</option></a>
-        @endforeach
-        {{-- @endif --}}
-    </select>
-</div>
-<div class="card" style="margin-left:0px; margin-top:0px">
-  <label for="per1">Crime Count</label><br>
-  <select id="crime_count" onchange="#" class="form-control"  style="width:120px;">
-      <option selected="selected">--Select--</option>
-      {{-- @if($locations) --}}
-      @foreach($locations as $item)
-      <a href="#"><option value="#">{{ $item->crime_count }}</option></a>
-      @endforeach
-    
-     {{-- @endif --}}
+   @endif
   </select>
-</div> 
-<div class="card" style="margin-left:0px; margin-top:0px">
-  <label for="per1">Crime Type</label><br>
-  <select id="incident_type" onchange="#" class="form-control"  style="width:120px;">
-      <option selected="selected">--Select--</option>
-      {{-- @if($locations) --}}
-      @foreach($locations as $item)
-      <a href="#"><option value="#">{{ $item->incident_type }}</option></a>
-      @endforeach
-    
-      {{-- @endif --}}
-  </select>
-</div> 
-<div class="card" style="margin-left:0px; margin-top:0px">
-  <label for="per1">Reported via</label><br>
-  <select id="r_type" onchange="#" class="form-control"  style="width:120px;">
-      <option selected="selected">--Select--</option>
-      {{-- @if($locations) --}}
-      @foreach($locations as $item)
-      <a href="#"><option value="#">{{ $item->r_type }}</option></a>
-      @endforeach
-    
-   {{-- @endif --}}
-  </select>
-</div>
-<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script>
-  jQuery(document).ready(function(){
-    jQuery('#district').change(function(){
-        let did=jQuery(this).val();
-        // jQuery('#zip').html('<option value="">Select Zip</option>')
-        alert(did)
+  
+{{-- 
+  <section class="content" style="margin-left:20px;margin-right:20pzx;margin-top:50px;">
+ <label for="cars">Select Chart Style</label>
+ <select name="chart" onchange="myFunction()" class="form-control" id="chart" style="width:120px;">
+   <option value="pie">Pie</option>
+   <option value="column">Column</option>
+   <option value="pyramid">Pyramid</option>
+   <option value="bar">Bar</option>
+ </select>
+ <div class="product-index" align="right" style="margin-top:1px;">
+ <div id="chartContainer" style="height:520px; width:100%"></div>
 
-      jQuery.ajax({
-        url:'/getCity',
-        type:'post',
-        data:'did='+did+'&_token={{ csrf_token() }}',
-        success:function(result){
-          jQuery('#city').html(result)
-        }
-      });
-    });
-    jQuery('#city').change(function(){
-        let cid=jQuery(this).val();
-        // alert(cid)
-      jQuery.ajax({
-        url:'/getZip',
-        type:'post',
-        data:'cid='+cid+'&_token={{ csrf_token() }}',
-        success:function(result){
-          jQuery('#zip').html(result)
-        }
+ </div>
 
-      });
-    });
-  });
-</script>    
-{{-- <section class="content" style="margin-left:20px;margin-right:20pzx;margin-top:50px;">
-<label for="cars">Select Chart Style</label>
-<select name="chart" onchange="myFunction()" class="form-control" id="chart" style="width:120px;">
-  <option value="pie">Pie</option>
-  <option value="column">Column</option>
-  <option value="pyramid">Pyramid</option>
-  <option value="bar">Bar</option>
-</select>
-<div class="product-index" align="right" style="margin-top:1px;">
-<div id="chartContainer" style="height:520px; width:100%"></div>
-
-</div>
-
-</section> --}}
+ </section> --}}
 {{-- <script>
-  function myFunction(){
+   function myFunction(){
     var chartType = document.getElementById("chart").value;
      var chart = new CanvasJS.Chart("chartContainer",{
       animatonEnabled:true,
@@ -258,7 +167,11 @@
      });
      chart.render();
   }
-</script> --}}
+ </script> --}}
+ 
+
+
+
 </div>
 
 
@@ -323,5 +236,6 @@
      <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0NuQOXznmNbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
   </body>
 </html>

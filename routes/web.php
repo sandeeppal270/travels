@@ -168,10 +168,10 @@ Route::controller(DashbController::class)->group(function(){
 Route::controller(IncidentController::class)->group(function(){
     Route::get('/incident','index')->name('incident.page');
 });
-// Route::controller(RoughController::class)->group(function(){
-//     Route::get('/rough','index')->name('rough.page');
-// });
-Route::get('/district',[RoughController::class,'index'])->name('rough.page');
+Route::controller(RoughController::class)->group(function(){
+    Route::get('/rough','index')->name('rough.page');
+});
+// Route::get('/district',[RoughController::class,'index'])->name('rough.page');
 Route::post('/getCity',[RoughController::class,'getCity']);
 Route::post('/getZip',[RoughController::class,'getZip']);
 
