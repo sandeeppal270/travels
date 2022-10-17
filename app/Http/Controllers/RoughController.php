@@ -57,7 +57,7 @@ class RoughController extends Controller
     //     $html='<option value="">Select City</option>';
     //     foreach($city as $item){
     //         $html.='<option value="'.$item->id.'">'.$item->city.'</option>';
-        
+        // 
            
     //     }
     //     echo $html;
