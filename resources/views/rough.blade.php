@@ -65,7 +65,7 @@
                       &nbsp;<a href="{{ route('incident.page') }}" class="btn btn-success">Incident type Analytics</a>
                       <section class="content" style="margin-left:900px;margin-right:20px;margin-top:-50px;">
                         <label for="cars">Select City</label>
-                        <select name="#" onchange="#" class="form-control" id="#" style="width:120px;">
+                        {{-- <select name="#" onchange="#" class="form-control" id="#" style="width:120px;">
                             <option selected="selected">--Select--</option>
                             @if($locations)
                             @foreach($locations as $item)
@@ -78,8 +78,8 @@
                           
                           </div>
                           
-                        </section>
-                        <section class="content" style="margin-left:1050px;margin-right:2px;margin-top:-60px;">
+                        </section> --}}
+                        {{-- <section class="content" style="margin-left:1050px;margin-right:2px;margin-top:-60px;">
                           <label for="cars">Crime Type</label>
                           <select name="#" onchange="myFunction()" class="form-control" id="#" style="width:120px;">
                             <option selected="selected">--Select--</option>
@@ -95,7 +95,7 @@
                             
                             </div>
                             
-                          </section>
+                          </section> --}}
                       <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -118,57 +118,54 @@
                     <!-- Show Graph Data -->
 <script src="https://cdnjs.com/libraries/Chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+
+ 
 <div class="col-md-12 bg-info">
-  <select id="district">
+  {{-- <select id="district">
     <option value="">Select District</option>
    @if($locations)
     @foreach($locations as $item)
     <option value="{{$item->id }}">{{ $item->district }}</option>
     @endforeach
    @endif
+  </select>  --}}
+   <select id="district">
+    <option value="">Select District</option>
+    @foreach($locations as $list)
+    <option value="{{ $list->id }}">{{ $list->district }}</option>
+    @endforeach
   </select>
-  
-{{-- 
-  <section class="content" style="margin-left:20px;margin-right:20pzx;margin-top:50px;">
- <label for="cars">Select Chart Style</label>
- <select name="chart" onchange="myFunction()" class="form-control" id="chart" style="width:120px;">
-   <option value="pie">Pie</option>
-   <option value="column">Column</option>
-   <option value="pyramid">Pyramid</option>
-   <option value="bar">Bar</option>
- </select>
- <div class="product-index" align="right" style="margin-top:1px;">
- <div id="chartContainer" style="height:520px; width:100%"></div>
-
- </div>
-
- </section> --}}
-{{-- <script>
-   function myFunction(){
-    var chartType = document.getElementById("chart").value;
-     var chart = new CanvasJS.Chart("chartContainer",{
-      animatonEnabled:true,
-      title:{
-        text:"city with crime count"
-      },
-      subtitle:[{
-        text:"crime count"
-
-      }],
-      data : [{
-        type:chartType, //"column",
-        // yValueFormatString: "##0.00\"\"",
-        yValueFormatString: "##0.00\"\"",
-        // zValueFormatString: "######\"\"",
-		    // indexLabel: "{label}({z})({y})",
-        indexLabel: "{label}({y})",
-		dataPoints: <?php echo json_encode($data,JSON_NUMERIC_CHECK); ?>
-      }]
-     });
-     chart.render();
+  <select id="city">
+    <option value="">Select city</option>
+    @foreach($locations as $list)
+    <option value="{{ $list->id }}">{{ $list->city }}</option>
+    @endforeach
+  </select>
+  <select id="zip">
+    <option value="">Select zip</option>
+  </select>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <script>
+    jQuery(document).ready(function(){
+      jQuery('#district').change(function(){
+let did=jQuery(this).val();
+// alert(did)
+jQuery.ajax({
+  url:'/getCity',
+  type:'post',
+  data:'did='+did+'&_token={{ csrf_token() }}',
+  success:function(result){
+    jQuery('#city').html(result)
   }
- </script> --}}
- 
+});
+      });
+    });
+  </script>
+
+  
+
+
+  
 
 
 

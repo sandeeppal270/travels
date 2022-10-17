@@ -9,11 +9,26 @@ use Illuminate\Support\Facades\DB;
 class RoughController extends Controller
 {
     public function index(Request $request){
-        $locations=DB::table('locations')->orderBy('district','asc')->get('*');
-            $store['locations'] = $locations;
-           
-            return view('rough',$store);
+        // $locations=DB::table('locations')->orderBy('district','asc')->orderBy('city','asc')->orderBy('incident_type','asc')->get('*');
+        // $data['locations'] = $locations;
+             
+        // return view('rough',$data);
+        $data['locations']=DB::table('locations')->orderBy('district','asc')->get();
+        return view('rough',$data);
+       
     }
+    public function getCity(Request $request){
+        $did=$request->post('did');
+        $city=DB::table('locations')->where('district',$did)->orderBy('city','asc')->get();
+        $html='<option value="">Select City</option>';
+        foreach($city as $list){
+            $html.='<option value="'.$list->id.'">'.$list->city.'</option>';
+        };
+        
+
+        echo $html;
+    }
+}
     // public function index(Request $request){
     //     $data['locations']=DB::table('locations')->orderBy('district','asc')->get();
 
@@ -32,7 +47,7 @@ class RoughController extends Controller
     //     }
     //     echo $html;
 
-}
+// }
 //     public function getZip(Request $request){
 //         $cid=$request->post('cid');
 //         $locations=DB::table('locations')->where('city',$cid)->orderBy('zip','asc')->get('*');
