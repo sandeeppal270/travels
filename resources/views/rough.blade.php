@@ -65,7 +65,7 @@
                       &nbsp;<a href="{{ route('incident.page') }}" class="btn btn-success">Incident type Analytics</a>
                       <section class="content" style="margin-left:900px;margin-right:20px;margin-top:-50px;">
                         <label for="cars">Select City</label>
-                        {{-- <select name="#" onchange="#" class="form-control" id="#" style="width:120px;">
+                         <select name="#" onchange="#" class="form-control" id="#" style="width:120px;">
                             <option selected="selected">--Select--</option>
                             @if($locations)
                             @foreach($locations as $item)
@@ -78,8 +78,8 @@
                           
                           </div>
                           
-                        </section> --}}
-                        {{-- <section class="content" style="margin-left:1050px;margin-right:2px;margin-top:-60px;">
+                        </section>
+                        <section class="content" style="margin-left:1050px;margin-right:2px;margin-top:-60px;">
                           <label for="cars">Crime Type</label>
                           <select name="#" onchange="myFunction()" class="form-control" id="#" style="width:120px;">
                             <option selected="selected">--Select--</option>
@@ -95,7 +95,7 @@
                             
                             </div>
                             
-                          </section> --}}
+                          </section>
                       <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -128,7 +128,7 @@
     <option value="{{$item->id }}">{{ $item->district }}</option>
     @endforeach
    @endif
-  </select>  --}}
+  </select> --}}
    <select id="district">
     <option value="">Select District</option>
     @foreach($locations as $list)
@@ -137,18 +137,22 @@
   </select>
   <select id="city">
     <option value="">Select city</option>
+    
     @foreach($locations as $list)
     <option value="{{ $list->id }}">{{ $list->city }}</option>
     @endforeach
+    
   </select>
   <select id="zip">
     <option value="">Select zip</option>
   </select>
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
   <script>
     jQuery(document).ready(function(){
       jQuery('#district').change(function(){
 let did=jQuery(this).val();
+jQuery('#zip').html('<option value="">Select Zip</option>')
 // alert(did)
 jQuery.ajax({
   url:'/getCity',
@@ -159,9 +163,23 @@ jQuery.ajax({
   }
 });
       });
+
+
+      jQuery('#city').change(function(){
+let cid=jQuery(this).val();
+// alert(did)
+jQuery.ajax({
+  url:'/getZip',
+  type:'post',
+  data:'cid='+cid+'&_token={{ csrf_token() }}',
+  success:function(result){
+    jQuery('#zip').html(result)
+  }
+});
+      });
     });
   </script>
-
+  
   
 
 
