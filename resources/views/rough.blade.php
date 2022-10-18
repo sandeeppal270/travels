@@ -179,14 +179,6 @@ jQuery.ajax({
       });
     });
   </script>
-  
-  
-
-
-  
-
-
-
 </div>
                     </div>
                   </div>
