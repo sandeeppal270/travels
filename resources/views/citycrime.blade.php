@@ -1,9 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
   @include('header')
-
-            
 
             <!-- sidebar menu -->
            @include('sidebar')
@@ -59,12 +56,9 @@
                 <div class="col-md-12 col-sm-8 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
-                      <div class="btn btn-info">City With Crime Analytics</div>
-                      &nbsp;<a href="{{ route('usergraph.page') }}" class="btn btn-success">City with Age Analytics</a>
-                      &nbsp;<a href="{{ route('addressgraph.page') }}" class="btn btn-success">Crime Analytics</a>
-                      &nbsp;<a href="{{ route('incident.page') }}" class="btn btn-success">Incident type Analytics</a>
-                      
-                          
+                      {{-- <h2>City Analytics</h2>
+                      &nbsp;<a href="{{ route('usergraph.page') }}" class="btn btn-success">City</a>
+                      &nbsp;<a href="{{ route('addressgraph.page') }}" class="btn btn-success">Crime Analytics</a> --}}
                       <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -87,86 +81,50 @@
                     <!-- Show Graph Data -->
 <script src="https://cdnjs.com/libraries/Chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
-
- 
 <div class="col-md-12 bg-info">
-  <section class="content" style="margin-left:0px;margin-right:20px;margin-top:0px;">
-    <label for="cars">Select City</label>
-     <select name="#" onchange="#" class="form-control" id="#" style="width:120px;">
-        <option selected="selected">--Select--</option>
-        @if($locations)
-        @foreach($locations as $item)
-        <option value="#"><a href="#">{{ $item->city }}</a></option>
-        @endforeach
-        @endif
-    </select>
-    <div class="product-index" align="right" style="margin-top:1px;">
-      <div id="#" style="height:0px; width:0%"></div>
-      
-      </div>
-      
-    </section>
-   
-    <section class="content" style="margin-left:150px;margin-right:2px;margin-top:-60px;">
-      <label for="cars">Crime Type</label>
-      <select name="#" onchange="myFunction()" class="form-control" id="#" style="width:120px;">
-        <option selected="selected">--Select--</option>
-        @if($locations)
-        @foreach($locations as $item)
-        <option value="#">{{ $item->incident_type }}</option>
-        @endforeach
-        @endif
-     
-      </select>
-      <div class="product-index" align="right" style="margin-top:1px;">
-        <div id="#" style="height:0px; width:0%"></div>
-        
-        </div>
-        
-      </section>
-      <section class="content" style="margin-left:300px;margin-right:2px;margin-top:-35px;">
-         <a href="{{ route('citycrime.page') }}" class="btn btn-info">Submit</a>                          
-        <div class="product-index" align="right" style="margin-top:1px;">
-          <div id="#" style="height:0px; width:0%"></div>
-          
-          </div>
-          
-        </section>
-  <script>
-    jQuery(document).ready(function(){
-      jQuery('#district').change(function(){
-let did=jQuery(this).val();
-jQuery('#zip').html('<option value="">Select Zip</option>')
-// alert(did)
-jQuery.ajax({
-  url:'/getCity',
-  type:'post',
-  data:'did='+did+'&_token={{ csrf_token() }}',
-  success:function(result){
-    jQuery('#city').html(result)
-  }
-});
-      });
+<section class="content" style="margin-left:20px;margin-right:20pzx;margin-top:50px;">
+<label for="cars">Select Chart Style</label>
+<select name="chart" onchange="myFunction()" class="form-control" id="chart" style="width:120px;">
+  <option value="pie">Pie</option>
+  <option value="column">Column</option>
+  <option value="pyramid">Pyramid</option>
+  <option value="bar">Bar</option>
+</select>
+<div class="product-index" align="right" style="margin-top:1px;">
+<div id="chartContainer" style="height:520px; width:100%"></div>
+</div>
 
+</section>
+<script>
+  function myFunction(){
+    var chartType = document.getElementById("chart").value;
+     var chart = new CanvasJS.Chart("chartContainer",{
+      animatonEnabled:true,
+      title:{
+        text:"Top 10 Crime Cities (Incident type)(Crime count)"
+      },
+      subtitle:[{
+        text:"crime count"
 
-      jQuery('#city').change(function(){
-let cid=jQuery(this).val();
-// alert(did)
-jQuery.ajax({
-  url:'/getZip',
-  type:'post',
-  data:'cid='+cid+'&_token={{ csrf_token() }}',
-  success:function(result){
-    jQuery('#zip').html(result)
+      }],
+      data : [{
+        type:chartType, //"column",
+        // yValueFormatString: "##0.00\"\"",
+        // yValueFormatString: "##########",
+        yValueFormatString: "##0.00\"\"",
+        zValueFormatString: "######\"\"",
+		    indexLabel: "{label}({z})({y})",
+		dataPoints: <?php echo json_encode($data,JSON_NUMERIC_CHECK); ?>
+      }]
+     });
+     chart.render();
   }
-});
-      });
-    });
-  </script>
+</script>
 </div>
                     </div>
                   </div>
                 </div>
+         
         <!-- /page content -->
 
         <!-- footer content -->
@@ -221,6 +179,9 @@ jQuery.ajax({
      <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js" integrity="sha512-vBmx0NuQOXznmNbkp7h0P1RfLSj0HQrFSzV8m7rOGyj30fYAOKHYvCNez+yM8IrfnW0TCodDEjRqf6fodf/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
   </body>
 </html>
+
+
+
+

@@ -94,7 +94,6 @@
 </select>
 <div class="product-index" align="right" style="margin-top:1px;">
 <div id="chartContainer" style="height:520px; width:100%"></div>
-
 </div>
 
 </section>
@@ -123,11 +122,6 @@
   }
 </script>
 </div>
-
-
-
-
-
                     </div>
                   </div>
                 </div>

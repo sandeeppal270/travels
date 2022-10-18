@@ -15,6 +15,7 @@ use App\Http\Controllers\AddressgraphController;
 use App\Http\Controllers\DashbController;
 use App\Http\Controllers\IncidentController;
 use App\Http\Controllers\RoughController;
+use App\Http\Controllers\CitycrimeController;
 
 
 
@@ -174,6 +175,9 @@ Route::controller(RoughController::class)->group(function(){
 // Route::get('/district',[RoughController::class,'index'])->name('rough.page');
 Route::post('/getCity',[RoughController::class,'getCity']);
 Route::post('/getZip',[RoughController::class,'getZip']);
+Route::controller(CitycrimeController::class)->group(function(){
+    Route::get('/citycrime','index')->name('citycrime.page');
+});
 
 
 
