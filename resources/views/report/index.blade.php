@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   @include('header')
-
-            
-
             <!-- sidebar menu -->
            @include('sidebar')
             <!-- /sidebar menu -->
@@ -27,7 +24,6 @@
             <!-- /menu footer buttons -->
           </div>
         </div>
-
         <!-- top navigation -->
        @include('navbar')
        <!-- page content -->
