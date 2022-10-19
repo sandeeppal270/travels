@@ -2,8 +2,6 @@
 <html lang="en">
   @include('header')
 
-            
-
             <!-- sidebar menu -->
            @include('sidebar')
             <!-- /sidebar menu -->
