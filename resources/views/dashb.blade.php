@@ -85,9 +85,9 @@
 <section class="content" style="margin-left:20px;margin-right:20pzx;margin-top:50px;">
 <label for="cars">Select Chart Style</label>
 <select name="chart" onchange="myFunction()" class="form-control" id="chart" style="width:120px;">
-  {{-- <option value="pie">Pie</option> --}}
+  <option value="pie">Pie</option>
   <option value="column">Column</option>
-  {{-- <option value="pyramid">Pyramid</option> --}}
+  <option value="pyramid">Pyramid</option>
   <option value="bar">Bar</option>
 </select>
 <div class="product-index" align="right" style="margin-top:1px;">
@@ -101,7 +101,7 @@
      var chart = new CanvasJS.Chart("chartContainer",{
       animatonEnabled:true,
       title:{
-        text:"Top 10 Crime Cities"
+        text:"Top 10 Crime Cities(Zip code)"
       },
       subtitle:[{
         text:"crime count"
@@ -112,13 +112,40 @@
         // yValueFormatString: "##0.00\"\"",
         yValueFormatString: "##0.00\"\"",
         zValueFormatString: "######\"\"",
-		    indexLabel: "{label}({y})",
+		    indexLabel: "{label}({z})({y})",
 		dataPoints: <?php echo json_encode($data,JSON_NUMERIC_CHECK); ?>
       }]
      });
      chart.render();
   }
 </script>
+<script>
+  window.onload = function () {
+  
+  var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    theme: "light2", // "light1", "light2", "dark1", "dark2"
+    title:{
+      text: "Top 10 Crime Cities"
+    },
+    axisY: {
+      title: "Number Of Crime------>"
+    },
+    data: [{        
+      type: "column",  
+      showInLegend: true, 
+      legendMarkerColor: "grey",
+      legendText: "Cities----->",
+      dataPoints: <?php echo json_encode($data,JSON_NUMERIC_CHECK); ?>
+    }]
+  });
+  chart.render();
+  
+  }
+  </script>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
 </div>
                     </div>
                   </div>

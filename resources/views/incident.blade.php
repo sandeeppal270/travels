@@ -122,6 +122,32 @@
      chart.render();
   }
 </script>
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "dark2", // "light1", "light2", "dark1", "dark2"
+	title:{
+		text: "Crime Type & Crime"
+	},
+	axisY: {
+		title: "Crime--->"
+	},
+	data: [{        
+		type: "column",  
+		showInLegend: true, 
+		legendMarkerColor: "grey",
+		legendText: "Crime Type--->",
+		dataPoints: <?php echo json_encode($data,JSON_NUMERIC_CHECK); ?>
+	}]
+});
+chart.render();
+
+}
+</script>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </div>
 
 

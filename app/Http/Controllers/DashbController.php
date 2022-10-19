@@ -21,13 +21,12 @@ class DashbController extends Controller
             (
             'label'=>$row->city,
             'y'=>$row->crime_count,
-            // 'z'=>$row->zip
+            'z'=>$row->zip
             
             );
             
         }
         return view('dashb',['data' => $data]);
-
 
     }
 }

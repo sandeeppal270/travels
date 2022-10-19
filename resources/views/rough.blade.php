@@ -163,6 +163,32 @@ jQuery.ajax({
       });
     });
   </script>
+  <script>
+    window.onload = function () {
+    
+    var chart = new CanvasJS.Chart("chartContainer", {
+      animationEnabled: true,
+      theme: "light2", // "light1", "light2", "dark1", "dark2"
+      title:{
+        text: "Cities And No. Of Crime"
+      },
+      axisY: {
+        title: "Number of crime with Incident type--->"
+      },
+      data: [{        
+        type: "column",  
+        showInLegend: true, 
+        legendMarkerColor: "grey",
+        legendText: "Cities --->",
+        dataPoints: <?php echo json_encode($locations,JSON_NUMERIC_CHECK); ?>
+      }]
+    });
+    chart.render();
+    
+    }
+    </script>
+  <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </div>
                     </div>
                   </div>
