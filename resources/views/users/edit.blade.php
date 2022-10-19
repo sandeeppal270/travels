@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Travel Safely</title>
 </head>
 <body>
     @extends('users.layout')
@@ -36,7 +36,6 @@
         <input type="text" name="age" id="age" value="{{$app_users->longitude}}" class="form-control"></br>
         <input type="submit" value="Update" class="btn btn-success"></br>
     </form>
-  
                         </div>
                     </div>
 @stop

@@ -150,6 +150,9 @@ Route::controller(ProfileController::class)->group(function(){
 Route::get('/editpage', function () {
     return view('emails.edit');
 });
+Route::get('/usersedit', function () {
+    return view('users.edit');
+});
 Route::get('/login',[LoginController::class,'index']);
 // Route::get('/analytics',[GraphController::class,'index']);
 Route::controller(GraphController::class)->group(function(){
