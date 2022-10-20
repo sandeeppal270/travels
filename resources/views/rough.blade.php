@@ -59,12 +59,11 @@
                 <div class="col-md-12 col-sm-8 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
-                      <div class="btn btn-info">City With Crime Analytics</div>
+                      <a href="{{ route('analytics.page') }}" class="btn btn-success">City With Crime Analytics</a>
                       &nbsp;<a href="{{ route('usergraph.page') }}" class="btn btn-success">City with Age Analytics</a>
                       &nbsp;<a href="{{ route('addressgraph.page') }}" class="btn btn-success">Crime Analytics</a>
                       &nbsp;<a href="{{ route('incident.page') }}" class="btn btn-success">Incident type Analytics</a>
-                      
-                          
+                      &nbsp;<a href="#" class="btn btn-info"><i class="fa fa-arrow-left"></i>&nbsp;Back</a>                          
                       <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -147,8 +146,6 @@ jQuery.ajax({
   }
 });
       });
-
-
       jQuery('#city').change(function(){
 let cid=jQuery(this).val();
 // alert(did)
@@ -168,7 +165,7 @@ jQuery.ajax({
     
     var chart = new CanvasJS.Chart("chartContainer", {
       animationEnabled: true,
-      theme: "light2", // "light1", "light2", "dark1", "dark2"
+      theme: "light1", // "light1", "light2", "dark1", "dark2"
       title:{
         text: "Cities And No. Of Crime"
       },

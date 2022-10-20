@@ -81,11 +81,11 @@
       <form action="{{ url('users') }}" method="post" enctype="multipart/form-data">
         {!! csrf_field() !!}
         <div class="form-group">
-        <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
+        {{-- <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
         <label>Id</label></br>
         <input type="text" name="id" id="id" class="form-control"></br>
         <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-      </div>
+      </div> --}}
     </div>
     <div class="form-group">
       <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">

@@ -53,13 +53,15 @@
               </div>
               
               <div class="clearfix"></div>
-  
               <div class="row">
                 <div class="col-md-12 col-sm-8 col-xs-12">
                   <div class="x_panel">
                     <div class="x_title">
-                      <h2>City with Age Analytics</h2>
-                      &nbsp;<a href="{{ route('analytics.page') }}" class="btn btn-success"><i class="fa fa-backward"></i>&nbsp;Back</a>
+                      <a href="{{ route('analytics.page') }}" class="btn btn-success">City With Crime Analytics</a>
+                      &nbsp;<a href="#" class="btn btn-info">City with Age Analytics</a>
+                      &nbsp;<a href="{{ route('addressgraph.page') }}" class="btn btn-success">Crime Analytics</a>
+                      &nbsp;<a href="{{ route('incident.page') }}" class="btn btn-success">Incident type Analytics</a>
+                      &nbsp;<a href="{{ route('rough.page') }}" class="btn btn-success">More&nbsp;<i class="fa fa-arrow-right"></i></a>
                       <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -127,7 +129,7 @@ window.onload = function () {
 
 var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: true,
-	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	theme: "dark1", // "light1", "light2", "dark1", "dark2"
 	title:{
 		text: "City & Age"
 	},
