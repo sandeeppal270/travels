@@ -140,18 +140,14 @@
         </select>
         <div class="product-index" align="right" style="margin-top:1px;">
           <div id="#" style="height:0px; width:0%"></div>
-          
           </div>
-          
         </section>
         <section class="content" style="margin-left:1200px;margin-right:2px;margin-top:-35px;">
            {{-- <a href="{{ route('citycrime.page') }}" class="btn btn-info">Submit</a>  --}}
            <a href="#" class="btn btn-info">Submit</a>                                                   
           <div class="product-index" align="right" style="margin-top:1px;">
             <div id="#" style="height:0px; width:0%"></div>
-            
             </div>
-            
           </section>
   {{-- /dropdown --}}
 <section class="content" style="margin-left:20px;margin-right:20pzx;margin-top:-60px;">
@@ -164,7 +160,6 @@
 </select>
 <div class="product-index" align="right" style="margin-top:1px;">
 <div id="chartContainer" style="height:520px; width:100%"></div>
-
 </div>
 
 </section>
@@ -174,7 +169,7 @@
      var chart = new CanvasJS.Chart("chartContainer",{
       animatonEnabled:true,
       title:{
-        text:"city with crime count"
+        text:"Top Crime Cities (Zip Code)"
       },
       subtitle:[{
         text:"crime count"
@@ -184,9 +179,9 @@
         type:chartType, //"column",
         // yValueFormatString: "##0.00\"\"",
         yValueFormatString: "##0.00\"\"",
-        // zValueFormatString: "######\"\"",
+        zValueFormatString: "######\"\"",
 		    // indexLabel: "{label}({z})({y})",
-        indexLabel: "{label}({y})",
+        indexLabel: "{label}({z})({y})",
 		dataPoints: <?php echo json_encode($data,JSON_NUMERIC_CHECK); ?>
       }]
      });
