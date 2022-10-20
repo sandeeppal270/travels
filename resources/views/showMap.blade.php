@@ -109,7 +109,52 @@
 <script src="https://cdnjs.com/libraries/Chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
 <div class="col-md-12 bg-info">
-<section class="content" style="margin-left:20px;margin-right:20pzx;margin-top:50px;">
+  {{-- dropdown --}}
+    <section class="content" style="margin-left:900px;margin-right:20px;margin-top:0px;">
+      <label for="cars">Select City</label>
+       <select name="#" onchange="#" class="form-control" id="#" style="width:120px;">
+          <option selected="selected">--Select--</option>
+          {{-- @if($locations)
+          @foreach($locations as $item)
+          <option value="#"><a href="#">{{ $item->city }}</a></option>
+          @endforeach
+          @endif --}}
+      </select>
+      <div class="product-index" align="right" style="margin-top:1px;">
+        <div id="#" style="height:0px; width:0%"></div>
+        
+        </div>
+        
+      </section>
+     
+      <section class="content" style="margin-left:1050px;margin-right:2px;margin-top:-60px;">
+        <label for="cars">Crime Type</label>
+        <select name="#" onchange="myFunction()" class="form-control" id="#" style="width:120px;">
+          <option selected="selected">--Select--</option>
+          {{-- @if($locations)
+          @foreach($locations as $item)
+          <option value="#">{{ $item->incident_type }}</option>
+          @endforeach
+          @endif --}}
+       
+        </select>
+        <div class="product-index" align="right" style="margin-top:1px;">
+          <div id="#" style="height:0px; width:0%"></div>
+          
+          </div>
+          
+        </section>
+        <section class="content" style="margin-left:1200px;margin-right:2px;margin-top:-35px;">
+           {{-- <a href="{{ route('citycrime.page') }}" class="btn btn-info">Submit</a>  --}}
+           <a href="#" class="btn btn-info">Submit</a>                                                   
+          <div class="product-index" align="right" style="margin-top:1px;">
+            <div id="#" style="height:0px; width:0%"></div>
+            
+            </div>
+            
+          </section>
+  {{-- /dropdown --}}
+<section class="content" style="margin-left:20px;margin-right:20pzx;margin-top:-60px;">
 <label for="cars">Select Chart Style</label>
 <select name="chart" onchange="myFunction()" class="form-control" id="chart" style="width:120px;">
   <option value="pie">Pie</option>
