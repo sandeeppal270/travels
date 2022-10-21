@@ -246,6 +246,9 @@
                                       <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">
                                         <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
                                         <span><input type="date" value="{{ Carbon\Carbon::now()->format('Y-m-d') }}"></span> <b class="caret"></b>
+                                        <span><input type="DateTime" value="{{ Carbon\Carbon::now()->format('Y-m-d H:i:s e') }}"></span> <b class="caret"></b><br>&nbsp;&nbsp;&nbsp;
+                                        <input type="hidden" name="tz" id="tz">
+                                        <span><input type="day" value="{{ Carbon\Carbon::now()->format('l') }}"></span> <b class="caret"></b>
                                       </div>
                                     </div>
                                   </div>
