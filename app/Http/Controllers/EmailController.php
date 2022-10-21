@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Email;
+use Carbon\Carbon;
 
 class EmailController extends Controller
 {

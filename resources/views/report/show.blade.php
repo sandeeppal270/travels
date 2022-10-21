@@ -211,14 +211,13 @@
                                     <div class="col-md-6">
                                       <div id="reportrange" class="pull-right" style="margin-top: 5px; background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #E6E9ED">
                                         <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
-                                        <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                                        <span><input type="date" value="{{ Carbon\Carbon::now()->format('Y-m-d') }}"></span> <b class="caret"></b>
                                       </div>
                                     </div>
                                   </div>
                                   <!-- start of user-activity-graph -->
                                   <div id="graph_bar" style="width:100%; height:280px;"></div>
                                   <!-- end of user-activity-graph -->
-            
                                   <div class="" role="tabpanel" data-example-id="togglable-tabs">
                                     {{-- <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                                       <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Agent</a>
