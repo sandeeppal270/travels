@@ -27,7 +27,6 @@ class GraphController extends Controller
             'y'=>$row->crime_count,
             'z'=>$row->zip
 
-            
             );
             
         }

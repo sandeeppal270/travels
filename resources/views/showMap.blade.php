@@ -115,7 +115,7 @@
        <select name="#" onchange="#" class="form-control" id="#" style="width:120px;">
           <option selected="selected">--Select--</option>
           {{-- @if($locations)
-          @foreach($locations as $item)
+          @foreach($data as $item)
           <option value="#"><a href="#">{{ $item->city }}</a></option>
           @endforeach
           @endif --}}
@@ -136,7 +136,6 @@
           <option value="#">{{ $item->incident_type }}</option>
           @endforeach
           @endif --}}
-       
         </select>
         <div class="product-index" align="right" style="margin-top:1px;">
           <div id="#" style="height:0px; width:0%"></div>
