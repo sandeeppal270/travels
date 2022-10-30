@@ -23,10 +23,9 @@
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
-            <!-- /menu footer buttons -->
+            <!-- /menu footer buttons ------->
           </div>
         </div>
-
         <!-- top navigation -->
        @include('navbar')
        <!-- page content -->
@@ -84,7 +83,6 @@
                     <p class="card-text">City name : {{ $emails->city_name }}</p>
                     <p class="card-text">Latitude : {{ $emails->latitude }}</p>
                     <p class="card-text">Longitude : {{ $emails->longitude }}</p> --}}
-
                     {{-- page content================ --}}
 
                     <div class="right_col" role="main">
@@ -200,7 +198,6 @@
                                     </li>
                                   </ul> --}}
                                   <!-- end of skills -->
-            
                                 </div>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
             
