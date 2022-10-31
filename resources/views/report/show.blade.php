@@ -2,7 +2,7 @@
 <html lang="en">
   @include('header')
 
-            
+
 
             <!-- sidebar menu -->
            @include('sidebar')
@@ -48,7 +48,7 @@
             </div>
           </div>
           <div class="clearfix"></div>
-          
+
 
           <div class="row">
             <div class="col-md-12 col-xs-12">
@@ -91,7 +91,7 @@
                           <div class="title_left">
                             <h3>REPORT JOURNEY</h3>
                           </div>
-            
+
                           <div class="title_right">
                             <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                               <div class="input-group">
@@ -103,9 +103,9 @@
                             </div>
                           </div>
                         </div>
-                        
+
                         <div class="clearfix"></div>
-            
+
                         <div class="row">
                           <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
@@ -137,11 +137,11 @@
                                     </div>
                                   </div>
                                   <h3>{{ $report_journeys->app_user_name }}</h3>
-            
+
                                   <ul class="list-unstyled user_data">
                                     <li><h2 class="card-title"><i class="fa fa-user icon"></i>&nbsp;&nbsp;&nbsp;Id : {{ $report_journeys->id }}</h2>
                                     </li>
-            
+
                                     <li>
                                       <h2 class="card-title"><i class="fa fa-user icon"></i>&nbsp;&nbsp;&nbsp;App User : {{ $report_journeys->app_user_id }}</h2>
                                     </li>
@@ -163,12 +163,12 @@
                                     <li>
                                       <h2 class="card-text"><i class='fa fa-map-o'></i></i>&nbsp;&nbsp;&nbsp;Destination Location : {{ $report_journeys->destination_location }}</h2>
                                     </li>
-                                   
+
                                   </ul>
                                   <br />
                                   {{-- <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a> --}}
-                                 
-            
+
+
                                   <!-- start skills -->
                                   {{-- <h4>Skills</h4>
                                   <ul class="list-unstyled user_data">
@@ -200,7 +200,7 @@
                                   <!-- end of skills -->
                                 </div>
                                 <div class="col-md-9 col-sm-9 col-xs-12">
-            
+
                                   <div class="profile_title">
                                     <div class="col-md-6">
                                       <h2>User Activity Report</h2>
@@ -232,7 +232,7 @@
                                     </ul> --}}
                                     <div id="myTabContent" class="tab-content">
                                       {{-- <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-            
+
                                         <!-- start recent activity -->
                                         <ul class="messages">
                                           <li>
@@ -299,13 +299,13 @@
                                               </p>
                                             </div>
                                           </li>
-            
+
                                         </ul>
                                         <!-- end recent activity -->
-            
+
                                       </div> --}}
                                       {{-- <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-            
+
                                         <!-- start user projects -->
                                         <table class="data table table-striped no-margin">
                                           <thead>
@@ -314,7 +314,7 @@
                                               <th>Action1</th>
                                               <th>Action2</th>
                                               <th>Action3</th>
-                                              
+
                                             </tr>
                                           </thead>
                                           <tbody>
@@ -323,12 +323,12 @@
                                               <td>#</td>
                                               <td>#</td>
                                               <td>#</td>
-                                              
+
                                             </tr>
                                           </tbody>
                                         </table>
                                         <!-- end user projects -->
-            
+
                                       </div> --}}
                                       {{-- <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
                                         <p>{{ $locations->delegated }} </p>
@@ -345,11 +345,11 @@
                         </div>
                       </div>
                     </div>
-       
 
-                    {{-- / page content================= --}}
 
-                  
+                    {{--/ page content================= ---}}
+
+
 {{-- </div>
 </div>
 </div>
@@ -365,7 +365,6 @@
 <!-- footer content -->
 @include('footer')
 <!-- /footer content -->
-
 
 
 

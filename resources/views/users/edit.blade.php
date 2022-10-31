@@ -40,7 +40,5 @@
         </div>
     </div>
 @stop
-
 </body>
-
 </html>
