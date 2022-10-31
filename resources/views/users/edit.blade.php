@@ -8,6 +8,7 @@
 </head>
 <body>
     @extends('users.layout')
+    {{-- @include('sidebar') --}}
     @section('content')
 <div class="row g-4">
                     <div class="col-md-12 col-xl-6">
@@ -36,8 +37,10 @@
         <input type="text" name="age" id="age" value="{{$app_users->longitude}}" class="form-control"></br>
         <input type="submit" value="Update" class="btn btn-success"></br>
     </form>
-                        </div>
+                     </div>
                     </div>
 @stop
+
 </body>
+
 </html>
